@@ -1,15 +1,15 @@
 # upora-my-second-app-SinisaV
 upora-my-second-app-SinisaV created by GitHub Classroom
 
-## App Name
+## App Name :world_map:
 PlaceOfAttractions
 
-## App description
+## App description :pencil2:
 An application where the attractions of places will be presented. 
 It would keep data like name of the attraction, the location of the attraction, information on individual attractions and the date of guided tours of the attractions. 
 Anyone interested in a particular attraction would receive a notification about a particular upcoming event.
 
-## App tehnologies
+## App tehnologies :rocket:
 * map
 * push notifications
 * library Picasso
@@ -18,5 +18,5 @@ Anyone interested in a particular attraction would receive a notification about 
 * library JSON
 * Resources,...
 
-## Author
+## Author :pouting_man:
 Siniša Vučetić
