@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">PlaceOfAttractions</string>
+    <string name="inputBtn">Input</string>
+    <string name="aboutBtn">About</string>
+    <string name="attractions">Attractions</string>
+    <string name="input_form_attractions">Input form Attractions</string>
+    <string name="name">Name:</string>
+    <string name="eiffel_tower">Eiffel Tower</string>
+    <string name="maribor">Maribor</string>
+    <string name="location">Location:</string>
+    <string name="infoExample">Info example</string>
+    <string name="info">Info:</string>
+    <string name="add">Add</string>
+    <string name="toastInputError">Check Inputs Again!!!</string>
+
+    <string name="about_application">About Application</string>
+    <string name="textViewName">Name:</string>
+    <string name="textViewDescription">Description:</string>
+    <string name="textViewVersion">Version:</string>
+    <string name="textViewAuthor">Author:</string>
+    <string name="textViewNameDescription">PlaceOfAttractions</string>
+    <string name="textViewDescriptionDescription">An application contains \nattractions with date events. \nYou can add new attraction \nand edit it.</string>
+    <string name="textViewVersionDescription">Task 9</string>
+    <string name="textViewAuthorDescription">Siniša Vučetić</string>
 </resources>

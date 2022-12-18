@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fontSizeButtons">14sp</dimen>
+    <!--Main Activity-->
+    <dimen name="marginStartImageMain">16dp</dimen>
+    <dimen name="marginTopImageMain">16dp</dimen>
+    <dimen name="marginTopButtonMain">8dp</dimen>
+    <dimen name="marginStartButtonMain">80dp</dimen>
+    <dimen name="marginTopTextViewMain">64dp</dimen>
+    <dimen name="fontSizeMain">20sp</dimen>
+    <dimen name="widthAndHeightImageMIconMain">100dp</dimen>
+
+    <!--About Activity-->
+    <dimen name="marginStartTextViewAbout">18dp</dimen>
+    <dimen name="marginStartTextViewDesAbout">24dp</dimen>
+    <dimen name="marginTopTextViewDesAbout">40dp</dimen>
+    <dimen name="marginTopCaptionAbout">44dp</dimen>
+    <dimen name="marginStartCaptionAbout">32dp</dimen>
+    <dimen name="marginTopTextViewAbout">70dp</dimen>
+    <dimen name="fontSizeCaptionAbout">34sp</dimen>
+    <dimen name="fontSizeTextViewAbout">16sp</dimen>
+    <dimen name="widthImageVTAbout">50dp</dimen>
+    <dimen name="heightImageVTAbout">220dp</dimen>
+    <dimen name="widthAndHeightImageInfoAbout">46dp</dimen>
+
+    <!--Input Activity-->
+    <dimen name="heightEditTextInput">50dp</dimen>
+    <dimen name="marginTopCaptionInput">20dp</dimen>
+    <dimen name="marginStartTextViewInput">8dp</dimen>
+    <dimen name="marginStartEditTextInput">16dp</dimen>
+    <dimen name="marginTopEditTextInput">8dp</dimen>
+    <dimen name="marginStartButtonInput">20dp</dimen>
+    <dimen name="marginBetweenButtonsInput">26dp</dimen>
+    <dimen name="fontSizeTextViewInput">18sp</dimen>
+    <dimen name="fontSizeEditTextInput">18sp</dimen>
+    <dimen name="fontSizeCaptionInput">20sp</dimen>
+</resources>

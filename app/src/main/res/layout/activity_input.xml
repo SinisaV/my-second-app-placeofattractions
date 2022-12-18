@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InputActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/InputTextGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <ImageView
+        android:id="@+id/InputImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitEnd"
+        app:layout_constraintBottom_toTopOf="@+id/InputTextGuideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/inputimg" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/TextViewHorizontalGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <TextView
+        android:id="@+id/CaptionInputTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginTopCaptionInput"
+        android:text="@string/input_form_attractions"
+        android:textSize="@dimen/fontSizeCaptionInput"
+        android:fontFamily="@font/latobold"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="@+id/TextViewHorizontalGuideline"
+        app:layout_constraintTop_toTopOf="@+id/InputTextGuideline" />
+
+    <TextView
+        android:id="@+id/AttractionNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginStartTextViewInput"
+        android:text="@string/name"
+        android:textSize="@dimen/fontSizeTextViewInput"
+        android:fontFamily="@font/latobold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/AttractionNameEditText"
+        app:layout_constraintStart_toStartOf="@+id/TextViewHorizontalGuideline" />
+
+    <EditText
+        android:id="@+id/AttractionNameEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/heightEditTextInput"
+        android:layout_marginStart="@dimen/marginStartEditTextInput"
+        android:layout_marginTop="@dimen/marginTopCaptionInput"
+        android:ems="10"
+        android:hint="@string/eiffel_tower"
+        android:inputType="textPersonName"
+        android:textSize="@dimen/fontSizeEditTextInput"
+        android:fontFamily="@font/latoitalic"
+        app:layout_constraintStart_toEndOf="@id/verticalBarrierTextView"
+        app:layout_constraintTop_toBottomOf="@+id/CaptionInputTextView" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/verticalBarrierTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="end"
+        app:constraint_referenced_ids="AttractionNameTextView,AttractionLocationTextView,AttractionInfoTextView"
+        tools:layout_editor_absoluteX="116dp"
+        tools:layout_editor_absoluteY="362dp" />
+
+    <EditText
+        android:id="@+id/AttractionLocationEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/heightEditTextInput"
+        android:layout_marginStart="@dimen/marginStartEditTextInput"
+        android:layout_marginTop="@dimen/marginTopEditTextInput"
+        android:ems="10"
+        android:hint="@string/maribor"
+        android:fontFamily="@font/latoitalic"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@id/verticalBarrierTextView"
+        app:layout_constraintTop_toBottomOf="@+id/AttractionNameEditText" />
+
+    <TextView
+        android:id="@+id/AttractionLocationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginStartTextViewInput"
+        android:text="@string/location"
+        android:textSize="@dimen/fontSizeTextViewInput"
+        android:fontFamily="@font/latobold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/AttractionLocationEditText"
+        app:layout_constraintStart_toStartOf="@+id/TextViewHorizontalGuideline" />
+
+    <EditText
+        android:id="@+id/AttractionInfoEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/heightEditTextInput"
+        android:layout_marginStart="@dimen/marginStartEditTextInput"
+        android:layout_marginTop="@dimen/marginTopEditTextInput"
+        android:ems="10"
+        android:hint="@string/infoExample"
+        android:fontFamily="@font/latoitalic"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@id/verticalBarrierTextView"
+        app:layout_constraintTop_toBottomOf="@+id/AttractionLocationEditText" />
+
+    <TextView
+        android:id="@+id/AttractionInfoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginStartTextViewInput"
+        android:text="@string/info"
+        android:textSize="@dimen/fontSizeTextViewInput"
+        android:fontFamily="@font/latobold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/AttractionInfoEditText"
+        app:layout_constraintStart_toStartOf="@+id/TextViewHorizontalGuideline" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <Button
+        android:id="@+id/addBtn"
+        android:background="@drawable/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginTopButtonMain"
+        android:text="@string/add"
+        android:fontFamily="@font/latoblack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="@+id/TextViewHorizontalGuideline"
+        app:layout_constraintTop_toTopOf="@+id/guideline4" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/AboutHorizontalGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <TextView
+        android:id="@+id/CaptionAboutTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginStartCaptionAbout"
+        android:layout_marginTop="@dimen/marginTopCaptionAbout"
+        android:text="@string/about_application"
+        android:textSize="@dimen/fontSizeCaptionAbout"
+        android:fontFamily="@font/latobold"
+        app:layout_constraintStart_toStartOf="@+id/AboutHorizontalGuideline"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/NameLabelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginStartTextViewAbout"
+        android:text="@string/textViewName"
+        android:textSize="@dimen/fontSizeTextViewAbout"
+        android:fontFamily="@font/latoblack"
+        app:layout_constraintBaseline_toBaselineOf="@+id/NameDescriptionTextView"
+        app:layout_constraintStart_toStartOf="@+id/AboutHorizontalGuideline" />
+
+    <TextView
+        android:id="@+id/NameDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginStartTextViewDesAbout"
+        android:layout_marginTop="@dimen/marginTopTextViewAbout"
+        android:text="@string/textViewNameDescription"
+        android:textSize="@dimen/fontSizeTextViewAbout"
+        app:layout_constraintStart_toEndOf="@id/verticalBarrierAbout"
+        app:layout_constraintTop_toBottomOf="@+id/CaptionAboutTextView" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/verticalBarrierAbout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="end"
+        app:constraint_referenced_ids="NameLabelTextView,DescriptionLAbelTextView"
+        tools:layout_editor_absoluteX="131dp"
+        tools:layout_editor_absoluteY="240dp" />
+
+    <TextView
+        android:id="@+id/DescriptionLAbelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginStartTextViewAbout"
+        android:text="@string/textViewDescription"
+        android:textSize="@dimen/fontSizeTextViewAbout"
+        android:fontFamily="@font/latoblack"
+        app:layout_constraintBaseline_toBaselineOf="@+id/DescriptionDescriptionTextView"
+        app:layout_constraintStart_toStartOf="@+id/AboutHorizontalGuideline" />
+
+    <TextView
+        android:id="@+id/DescriptionDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginStartTextViewDesAbout"
+        android:layout_marginTop="@dimen/marginTopTextViewDesAbout"
+        android:text="@string/textViewDescriptionDescription"
+        android:textSize="@dimen/fontSizeTextViewAbout"
+        app:layout_constraintStart_toEndOf="@id/verticalBarrierAbout"
+        app:layout_constraintTop_toBottomOf="@+id/NameDescriptionTextView" />
+
+    <TextView
+        android:id="@+id/VersionLabelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginStartTextViewAbout"
+        android:text="@string/textViewVersion"
+        android:textSize="@dimen/fontSizeTextViewAbout"
+        android:fontFamily="@font/latoblack"
+        app:layout_constraintBaseline_toBaselineOf="@+id/VersionDescriptionTextView"
+        app:layout_constraintStart_toStartOf="@+id/AboutHorizontalGuideline" />
+
+    <TextView
+        android:id="@+id/VersionDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginStartTextViewDesAbout"
+        android:layout_marginTop="@dimen/marginTopTextViewDesAbout"
+        android:text="@string/textViewVersionDescription"
+        android:textSize="@dimen/fontSizeTextViewAbout"
+        app:layout_constraintStart_toEndOf="@id/verticalBarrierAbout"
+        app:layout_constraintTop_toBottomOf="@+id/DescriptionDescriptionTextView" />
+
+    <TextView
+        android:id="@+id/AuthorLabelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginStartTextViewAbout"
+        android:text="@string/textViewAuthor"
+        android:textSize="@dimen/fontSizeTextViewAbout"
+        android:fontFamily="@font/latoblack"
+        app:layout_constraintBaseline_toBaselineOf="@+id/AuthorDescriptionTextView"
+        app:layout_constraintStart_toStartOf="@+id/AboutHorizontalGuideline" />
+
+    <TextView
+        android:id="@+id/AuthorDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginStartTextViewDesAbout"
+        android:layout_marginTop="@dimen/marginTopTextViewDesAbout"
+        android:text="@string/textViewAuthorDescription"
+        android:textSize="@dimen/fontSizeTextViewAbout"
+        app:layout_constraintStart_toEndOf="@id/verticalBarrierAbout"
+        app:layout_constraintTop_toBottomOf="@+id/VersionDescriptionTextView" />
+</androidx.constraintlayout.widget.ConstraintLayout>

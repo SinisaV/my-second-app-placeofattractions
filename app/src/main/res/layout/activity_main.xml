@@ -6,13 +6,69 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="@dimen/widthAndHeightImageMIconMain"
+        android:layout_height="@dimen/widthAndHeightImageMIconMain"
+        android:layout_marginStart="@dimen/marginStartImageMain"
+        android:layout_marginTop="@dimen/marginTopImageMain"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/btnGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <Button
+        android:id="@+id/inputBtn"
+        android:background="@drawable/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginStartButtonMain"
+        android:layout_marginTop="@dimen/marginTopButtonMain"
+        android:text="@string/inputBtn"
+        android:textSize="@dimen/fontSizeButtons"
+        android:fontFamily="@font/latoblack"
+        app:layout_constraintEnd_toStartOf="@+id/aboutBtn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnGuideline" />
+
+    <Button
+        android:id="@+id/aboutBtn"
+        android:background="@drawable/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginTopButtonMain"
+        android:layout_marginEnd="@dimen/marginStartButtonMain"
+        android:text="@string/aboutBtn"
+        android:textSize="@dimen/fontSizeButtons"
+        android:fontFamily="@font/latoblack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnGuideline" />
+
+    <TextView
+        android:id="@+id/CaptionMainTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginTopTextViewMain"
+        android:text="@string/attractions"
+        android:textSize="@dimen/fontSizeMain"
+        android:fontFamily="@font/latobold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/logoImageView" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnGuideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CaptionMainTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
