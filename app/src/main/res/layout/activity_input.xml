@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/marginTopCaptionInput"
-        android:text="@string/input_form_attractions"
+        android:text="@string/captionInputFormAttractions"
         android:textSize="@dimen/fontSizeCaptionInput"
         android:fontFamily="@font/latobold"
         app:autoSizeTextType="uniform"
@@ -48,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/marginStartTextViewInput"
-        android:text="@string/name"
+        android:text="@string/textViewNameInput"
         android:textSize="@dimen/fontSizeTextViewInput"
         android:fontFamily="@font/latobold"
         app:layout_constraintBaseline_toBaselineOf="@+id/AttractionNameEditText"
@@ -61,7 +61,7 @@
         android:layout_marginStart="@dimen/marginStartEditTextInput"
         android:layout_marginTop="@dimen/marginTopCaptionInput"
         android:ems="10"
-        android:hint="@string/eiffel_tower"
+        android:hint="@string/editTextNameHint"
         android:inputType="textPersonName"
         android:textSize="@dimen/fontSizeEditTextInput"
         android:fontFamily="@font/latoitalic"
@@ -73,7 +73,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="end"
-        app:constraint_referenced_ids="AttractionNameTextView,AttractionLocationTextView,AttractionInfoTextView"
+        app:constraint_referenced_ids="AttractionNameTextView,AttractionLocationTextView,AttractionInfoTextView,AttractionYearTextView"
         tools:layout_editor_absoluteX="116dp"
         tools:layout_editor_absoluteY="362dp" />
 
@@ -84,7 +84,7 @@
         android:layout_marginStart="@dimen/marginStartEditTextInput"
         android:layout_marginTop="@dimen/marginTopEditTextInput"
         android:ems="10"
-        android:hint="@string/maribor"
+        android:hint="@string/editTextLocationHint"
         android:fontFamily="@font/latoitalic"
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@id/verticalBarrierTextView"
@@ -95,7 +95,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/marginStartTextViewInput"
-        android:text="@string/location"
+        android:text="@string/textViewLocation"
         android:textSize="@dimen/fontSizeTextViewInput"
         android:fontFamily="@font/latobold"
         app:layout_constraintBaseline_toBaselineOf="@+id/AttractionLocationEditText"
@@ -108,7 +108,7 @@
         android:layout_marginStart="@dimen/marginStartEditTextInput"
         android:layout_marginTop="@dimen/marginTopEditTextInput"
         android:ems="10"
-        android:hint="@string/infoExample"
+        android:hint="@string/editTextInfoHint"
         android:fontFamily="@font/latoitalic"
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@id/verticalBarrierTextView"
@@ -119,14 +119,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/marginStartTextViewInput"
-        android:text="@string/info"
+        android:text="@string/textViewInfo"
         android:textSize="@dimen/fontSizeTextViewInput"
         android:fontFamily="@font/latobold"
         app:layout_constraintBaseline_toBaselineOf="@+id/AttractionInfoEditText"
         app:layout_constraintStart_toStartOf="@+id/TextViewHorizontalGuideline" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
+        android:id="@+id/horizontalGuidelineButtons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -138,11 +138,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/marginTopButtonMain"
-        android:text="@string/add"
+        android:text="@string/addBtn"
         android:fontFamily="@font/latoblack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="@+id/TextViewHorizontalGuideline"
-        app:layout_constraintTop_toTopOf="@+id/guideline4" />
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuidelineButtons" />
+
+    <TextView
+        android:id="@+id/AttractionYearTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginStartTextViewInput"
+        android:text="@string/textViewYear"
+        android:textSize="@dimen/fontSizeTextViewInput"
+        android:fontFamily="@font/latobold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/AttractionYearEditText"
+        app:layout_constraintStart_toStartOf="@+id/TextViewHorizontalGuideline" />
+
+    <EditText
+        android:id="@+id/AttractionYearEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/heightEditTextInput"
+        android:layout_marginStart="@dimen/marginStartEditTextInput"
+        android:layout_marginTop="@dimen/marginTopEditTextInput"
+        android:ems="10"
+        android:hint="@string/editTextYearHint"
+        android:fontFamily="@font/latoitalic"
+        app:layout_constraintStart_toEndOf="@id/verticalBarrierTextView"
+        app:layout_constraintTop_toBottomOf="@+id/AttractionInfoEditText"
+        tools:layout_editor_absoluteX="139dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

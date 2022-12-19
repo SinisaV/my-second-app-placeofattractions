@@ -56,7 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/marginTopTextViewMain"
-        android:text="@string/attractions"
+        android:text="@string/CaptionAttractions"
         android:textSize="@dimen/fontSizeMain"
         android:fontFamily="@font/latobold"
         app:layout_constraintEnd_toEndOf="parent"
