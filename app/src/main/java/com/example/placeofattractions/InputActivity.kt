@@ -1,15 +1,11 @@
 package com.example.placeofattractions
 
-import android.app.Application
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
 import android.widget.Toast
-import com.example.lib.Attraction
-import com.example.lib.Event
 import com.example.placeofattractions.databinding.ActivityInputBinding
-import io.github.serpro69.kfaker.faker
-import kotlin.random.Random
 
 class InputActivity : AppCompatActivity() {
 
@@ -19,12 +15,33 @@ class InputActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        val data = Intent()
         app = application as MyApplication
 
         binding = ActivityInputBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.addBtn.setOnClickListener() {
+        val index = intent.getIntExtra("index", 0)
+
+        if (index == 1) {
+            val changeName = intent.getStringExtra("InputName")
+            val changeLocation = intent.getStringExtra("InputLocation")
+            val changeInfo = intent.getStringExtra("InputInfo")
+            val changeYear = intent.getIntExtra("InputYear", 2000)
+
+            binding.AttractionNameEditText.setText(changeName)
+            binding.AttractionLocationEditText.setText(changeLocation)
+            binding.AttractionInfoEditText.setText(changeInfo)
+            binding.AttractionYearEditText.setText(changeYear.toString())
+
+            val position = intent.getIntExtra("position",0)
+            //Toast.makeText(applicationContext, position.toString(), Toast.LENGTH_SHORT).show()
+
+            data.putExtra("ok", "ok")
+            data.putExtra("pos", position)
+
+        }
+        binding.addBtn.setOnClickListener {
             if (binding.AttractionNameEditText.text.isBlank() || binding.AttractionLocationEditText.text.isBlank()
                 || binding.AttractionInfoEditText.text.isBlank() || binding.AttractionYearEditText.text.isBlank()) {
 
@@ -35,29 +52,35 @@ class InputActivity : AppCompatActivity() {
 
             }
             else {
-                val name: String = binding.AttractionNameEditText.text.toString()
-                val location: String = binding.AttractionLocationEditText.text.toString()
-                val info: String = binding.AttractionInfoEditText.text.toString()
-                val year: Int = binding.AttractionYearEditText.text.toString().toInt()
 
-
-                app.data.clear()
-                val listOfEvents = mutableListOf<Event>()
-                val countAddEvent = Random.nextInt(1, 3)
-
-                val faker = faker { }
-
-                for (i in 1..countAddEvent) {
-                    listOfEvents.add(Event(faker.name.toString(), "19.12.2022"))
+                if (binding.AttractionYearEditText.text.toString().toInt() > 2022) {
+                    val inputYearError =getString(R.string.toastInputYearError)
+                    Toast.makeText(applicationContext, inputYearError, Toast.LENGTH_SHORT).show()
+                    binding.AttractionYearEditText.text.clear()
                 }
+                else {
+                    val name: String = binding.AttractionNameEditText.text.toString()
+                    val location: String = binding.AttractionLocationEditText.text.toString()
+                    val info: String = binding.AttractionInfoEditText.text.toString()
+                    val year: Int = binding.AttractionYearEditText.text.toString().toInt()
 
-                app.data.add(Attraction(name, location, info, year, listOfEvents))
-                Toast.makeText(applicationContext, app.data.toString(), Toast.LENGTH_SHORT).show()
+                    //app.data.add(Attraction(name, location, info, year, listOfEvents))
+                    //Toast.makeText(applicationContext, app.data.size.toString(), Toast.LENGTH_SHORT).show()
 
-                binding.AttractionNameEditText.text.clear()
-                binding.AttractionLocationEditText.text.clear()
-                binding.AttractionInfoEditText.text.clear()
-                binding.AttractionYearEditText.text.clear()
+                    binding.AttractionNameEditText.text.clear()
+                    binding.AttractionLocationEditText.text.clear()
+                    binding.AttractionInfoEditText.text.clear()
+                    binding.AttractionYearEditText.text.clear()
+
+                    data.putExtra("name", name)
+                    data.putExtra("location",location)
+                    data.putExtra("info", info)
+                    data.putExtra("year", year)
+                    //data.putExtra("ok", "notOk")
+
+                    setResult(RESULT_OK, data)
+                    finish()
+                }
             }
         }
     }

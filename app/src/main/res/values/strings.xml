@@ -14,6 +14,7 @@
     <string name="editTextYearHint">1998</string>
     <string name="addBtn">Add</string>
     <string name="toastInputError">Check Inputs Again!!!</string>
+    <string name="toastInputYearError">Year is too large!!!</string>
 
     <string name="about_application">About Application</string>
     <string name="textViewName">Name:</string>
@@ -24,4 +25,7 @@
     <string name="textViewDescriptionDescription">An application contains \nattractions with date events. \nYou can add new attraction \nand edit it.</string>
     <string name="textViewVersionDescription">Task 9</string>
     <string name="textViewAuthorDescription">Siniša Vučetić</string>
+    <string name="textViewNameMyItem">VALUE Name</string>
+    <string name="textViewInfoMyItem">VALUE Info</string>
+    <string name="textViewYearMyItem">VALUE Year</string>
 </resources>

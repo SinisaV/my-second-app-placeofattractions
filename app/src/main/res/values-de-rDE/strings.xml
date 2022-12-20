@@ -15,6 +15,7 @@
     <string name="editTextYearHint">1998</string>
     <string name="addBtn">Addieren</string>
     <string name="toastInputError">Eingaben nochmals prüfen!!!</string>
+    <string name="toastInputYearError">Jahr ist zu groß!!!</string>
     <string name="about_application">Über Bewerbung</string>
     <string name="textViewName">Name:</string>
     <string name="textViewDescription">Beschreibung:</string>
@@ -24,4 +25,7 @@
     <string name="textViewDescriptionDescription">Eine Anwendung enthält \nAttraktionen mit \nDatumsereignissen. Sie \nkönnen neue Attraktionen \nhinzufügen und bearbeiten.</string>
     <string name="textViewVersionDescription">Aufgabe 9</string>
     <string name="textViewAuthorDescription">Siniša Vučetić</string>
+    <string name="textViewNameMyItem">WERT name</string>
+    <string name="textViewInfoMyItem">WERT info</string>
+    <string name="textViewYearMyItem">WERT Jahr</string>
 </resources>
