@@ -76,12 +76,22 @@ class MyApplication : Application() {
     fun readFromFIle() {
         try {
             val tmp = file.readText()
-            val usr: Type = object: TypeToken<MutableList<Attraction?>?>() {}.type
-            val tmpList: MutableList<Attraction> = gson.fromJson(tmp, usr)
+            val myType: Type = object: TypeToken<MutableList<Attraction?>?>() {}.type
+            val tmpList: MutableList<Attraction> = gson.fromJson(tmp, myType)
             data = tmpList
         }
         catch (e: IOException) {
             Timber.d("Can't read from file: ${file.path}")
+        }
+    }
+
+    fun updateFile() {
+        try {
+            deleteFile()
+            saveToFile()
+        }
+        catch (e: IOException) {
+            Timber.d("Can't update file: ${file.path}")
         }
     }
 }

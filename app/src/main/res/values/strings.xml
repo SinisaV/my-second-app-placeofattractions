@@ -2,12 +2,17 @@
     <string name="app_name">PlaceOfAttractions</string>
     <string name="inputBtn">Input</string>
     <string name="aboutBtn">About</string>
+    <string name="mapBtn">Map</string>
     <string name="CaptionAttractions">Attractions</string>
     <string name="captionInputFormAttractions">Input form Attractions</string>
     <string name="textViewNameInput">Name:</string>
     <string name="editTextNameHint">Eiffel Tower</string>
     <string name="editTextLocationHint">Maribor</string>
     <string name="textViewLocation">Location:</string>
+    <string name="editTextLatitudeHint">46.554650</string>
+    <string name="textViewLatitude">Latitude:</string>
+    <string name="editTextLongitudeHint">15.645881</string>
+    <string name="textViewLongitude">Longitude:</string>
     <string name="editTextInfoHint">Info example</string>
     <string name="textViewInfo">Info:</string>
     <string name="textViewYear">Year:</string>

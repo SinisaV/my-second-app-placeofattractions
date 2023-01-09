@@ -3,12 +3,17 @@
     <string name="app_name">PlaceOfAttractions</string>
     <string name="inputBtn">Eingang</string>
     <string name="aboutBtn">Über</string>
+    <string name="mapBtn">Karte</string>
     <string name="CaptionAttractions">Sehenswürdigkeiten</string>
     <string name="captionInputFormAttractions">Eingabeformular Sehenswürdigkeiten</string>
     <string name="textViewNameInput">Name:</string>
     <string name="editTextNameHint">Eiffelturm</string>
     <string name="editTextLocationHint">Maribor</string>
     <string name="textViewLocation">Standort:</string>
+    <string name="editTextLatitudeHint">46.554650</string>
+    <string name="textViewLatitude">Breite:</string>
+    <string name="editTextLongitudeHint">15.645881</string>
+    <string name="textViewLongitude">Längengrad:</string>
     <string name="editTextInfoHint">Info-Beispiel</string>
     <string name="textViewInfo">Die Info:</string>
     <string name="textViewYear">Year:</string>

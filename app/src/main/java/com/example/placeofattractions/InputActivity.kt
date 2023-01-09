@@ -26,11 +26,15 @@ class InputActivity : AppCompatActivity() {
         if (index == 1) {
             val changeName = intent.getStringExtra("InputName")
             val changeLocation = intent.getStringExtra("InputLocation")
+            val changeLatitude = intent.getDoubleExtra("InputLatitude", 46.554649)
+            val changeLongitude = intent.getDoubleExtra("InputLongitude", 46.554649)
             val changeInfo = intent.getStringExtra("InputInfo")
             val changeYear = intent.getIntExtra("InputYear", 2000)
 
             binding.AttractionNameEditText.setText(changeName)
             binding.AttractionLocationEditText.setText(changeLocation)
+            binding.AttractionLatitudeEditText.setText(changeLatitude.toString())
+            binding.AttractionLongitudeEditText.setText(changeLongitude.toString())
             binding.AttractionInfoEditText.setText(changeInfo)
             binding.AttractionYearEditText.setText(changeYear.toString())
 
@@ -64,6 +68,8 @@ class InputActivity : AppCompatActivity() {
                 else {
                     val name: String = binding.AttractionNameEditText.text.toString()
                     val location: String = binding.AttractionLocationEditText.text.toString()
+                    val latitude: Double = binding.AttractionLatitudeEditText.text.toString().toDouble()
+                    val longitude: Double = binding.AttractionLongitudeEditText.text.toString().toDouble()
                     val info: String = binding.AttractionInfoEditText.text.toString()
                     val year: Int = binding.AttractionYearEditText.text.toString().toInt()
 
@@ -72,11 +78,15 @@ class InputActivity : AppCompatActivity() {
 
                     binding.AttractionNameEditText.text.clear()
                     binding.AttractionLocationEditText.text.clear()
+                    binding.AttractionLatitudeEditText.text.clear()
+                    binding.AttractionLongitudeEditText.text.clear()
                     binding.AttractionInfoEditText.text.clear()
                     binding.AttractionYearEditText.text.clear()
 
                     data.putExtra("name", name)
                     data.putExtra("location",location)
+                    data.putExtra("latitude", latitude)
+                    data.putExtra("longitude", longitude)
                     data.putExtra("info", info)
                     data.putExtra("year", year)
                     //data.putExtra("ok", "notOk")

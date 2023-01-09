@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.25" />
+        app:layout_constraintGuide_percent="0.2" />
 
     <ImageView
         android:id="@+id/InputImageView"
@@ -73,7 +73,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="end"
-        app:constraint_referenced_ids="AttractionNameTextView,AttractionLocationTextView,AttractionInfoTextView,AttractionYearTextView"
+        app:constraint_referenced_ids="AttractionNameTextView,AttractionLocationTextView,AttractionInfoTextView,AttractionYearTextView,AttractionLatitudeTextView,AttractionLongitudeTextView"
         tools:layout_editor_absoluteX="116dp"
         tools:layout_editor_absoluteY="362dp" />
 
@@ -108,11 +108,11 @@
         android:layout_marginStart="@dimen/marginStartEditTextInput"
         android:layout_marginTop="@dimen/marginTopEditTextInput"
         android:ems="10"
-        android:hint="@string/editTextInfoHint"
         android:fontFamily="@font/latoitalic"
+        android:hint="@string/editTextInfoHint"
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@id/verticalBarrierTextView"
-        app:layout_constraintTop_toBottomOf="@+id/AttractionLocationEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/AttractionLongitudeEditText" />
 
     <TextView
         android:id="@+id/AttractionInfoTextView"
@@ -130,7 +130,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.8" />
+        app:layout_constraintGuide_percent="0.87" />
 
     <Button
         android:id="@+id/addBtn"
@@ -167,6 +167,56 @@
         android:fontFamily="@font/latoitalic"
         app:layout_constraintStart_toEndOf="@id/verticalBarrierTextView"
         app:layout_constraintTop_toBottomOf="@+id/AttractionInfoEditText"
+        tools:layout_editor_absoluteX="139dp" />
+
+    <TextView
+        android:id="@+id/AttractionLatitudeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginStartTextViewInput"
+        android:fontFamily="@font/latobold"
+        android:text="@string/textViewLatitude"
+        android:textSize="@dimen/fontSizeTextViewInput"
+        app:layout_constraintBaseline_toBaselineOf="@+id/AttractionLatitudeEditText"
+        app:layout_constraintStart_toStartOf="@+id/TextViewHorizontalGuideline" />
+
+    <EditText
+        android:id="@+id/AttractionLatitudeEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/heightEditTextInput"
+        android:layout_marginStart="@dimen/marginStartEditTextInput"
+        android:layout_marginTop="@dimen/marginTopEditTextInput"
+        android:ems="10"
+        android:hint="@string/editTextLatitudeHint"
+        android:fontFamily="@font/latoitalic"
+        app:layout_constraintStart_toEndOf="@id/verticalBarrierTextView"
+        android:inputType="numberDecimal"
+        app:layout_constraintTop_toBottomOf="@+id/AttractionLocationEditText"
+        tools:layout_editor_absoluteX="139dp" />
+
+    <TextView
+        android:id="@+id/AttractionLongitudeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginStartTextViewInput"
+        android:fontFamily="@font/latobold"
+        android:text="@string/textViewLongitude"
+        android:textSize="@dimen/fontSizeTextViewInput"
+        app:layout_constraintBaseline_toBaselineOf="@+id/AttractionLongitudeEditText"
+        app:layout_constraintStart_toStartOf="@+id/TextViewHorizontalGuideline" />
+
+    <EditText
+        android:id="@+id/AttractionLongitudeEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/heightEditTextInput"
+        android:layout_marginStart="@dimen/marginStartEditTextInput"
+        android:layout_marginTop="@dimen/marginTopEditTextInput"
+        android:ems="10"
+        android:hint="@string/editTextLongitudeHint"
+        android:fontFamily="@font/latoitalic"
+        app:layout_constraintStart_toEndOf="@id/verticalBarrierTextView"
+        android:inputType="numberDecimal"
+        app:layout_constraintTop_toBottomOf="@+id/AttractionLatitudeEditText"
         tools:layout_editor_absoluteX="139dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

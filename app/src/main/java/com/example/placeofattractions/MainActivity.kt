@@ -12,6 +12,9 @@ import android.graphics.BitmapFactory
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.Gravity
+import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -46,14 +49,13 @@ class MainActivity : AppCompatActivity(), RecyclerViewInterface {
         }
 
         val listOfEvents = mutableListOf<Event>()
+        val listOfLatitudes = listOf(46.554649, 46.056946, 48.856613, 51.507351, 44.787197)
+        val listOfLongitudes = listOf(15.645881, 14.505752, 2.352222, -0.127758, 20.457273)
+        val listOfLocations = listOf("Maribor", "Ljubljana", "Paris", "London", "Beograd")
 
         val faker = faker { }
 
-        /*for (i in 1..countAddEvent) {
-            listOfEvents.add(Event(faker.name.toString(), "19.12.2022", Random.nextBoolean()))
-        }*/
-
-        if (app.data.size < 5) {
+        /*if (app.data.size < 5) {
             for (i in 1..5) {
                 val countAddEvent = Random.nextInt(0, 2)
                 for (j in 1..countAddEvent) {
@@ -61,18 +63,38 @@ class MainActivity : AppCompatActivity(), RecyclerViewInterface {
                 }
 
                 val name = faker.name.name()
-                val location = faker.address.city()
+                val location = listOfLocations[i-1]
+                val latitude = listOfLatitudes[i-1]
+                val longitude = listOfLongitudes[i-1]
                 val info = faker.random.randomString()
                 val year = faker.random.nextInt(1900, 2022)
-                app.data.add(Attraction(name, location, info, year, listOfEvents))
+                app.data.add(Attraction(name, location, latitude, longitude, info, year, listOfEvents))
 
                 if (listOfEvents.isNotEmpty()) {
                     createNotify(name, info)
                 }
                 listOfEvents.clear()
             }
+        }*/
+        //app.saveToFile()
+        if (app.data.size < 5) {
+            app.readFromFIle()
+
+            for (i in 0 until app.data.size) {
+
+                val countAddEvent = Random.nextInt(0, 2)
+
+                for (j in 1..countAddEvent) {
+                    listOfEvents.add(Event(faker.name.toString(), "19.12.2022"))
+                }
+
+                app.data[i].events = listOfEvents
+
+                if (app.data[i].events.isNotEmpty()) {
+                    createNotify(app.data[i].name, app.data[i].info)
+                }
+            }
         }
-        app.saveToFile()
 
         binding.recyclerView.adapter = MyAdapter(app.data, this)
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
@@ -83,6 +105,8 @@ class MainActivity : AppCompatActivity(), RecyclerViewInterface {
 
                 val name: String = data!!.getStringExtra("name").toString()
                 val location: String = data.getStringExtra("location").toString()
+                val latitude: Double = data.getDoubleExtra("latitude", 46.554649)
+                val longitude: Double = data.getDoubleExtra("longitude", 46.554649)
                 val info: String = data.getStringExtra("info").toString()
                 val year: Int = data.getIntExtra("year", 2022)
 
@@ -101,12 +125,14 @@ class MainActivity : AppCompatActivity(), RecyclerViewInterface {
                     app.data[position].name = name
                     //Toast.makeText(applicationContext, name, Toast.LENGTH_SHORT).show()
                     app.data[position].location = location
+                    app.data[position].longitude = longitude
+                    app.data[position].latitude = latitude
                     app.data[position].info = info
                     app.data[position].year = year
                     //binding.recyclerView.adapter?.notifyItemChanged(position)
                 }
                 else {
-                    app.data.add(Attraction(name, location, info, year, myListOfEvents))
+                    app.data.add(Attraction(name, location, longitude, latitude, info, year, myListOfEvents))
                 }
 
                 if (myListOfEvents.isNotEmpty()) {
@@ -134,6 +160,11 @@ class MainActivity : AppCompatActivity(), RecyclerViewInterface {
             val intent = Intent(this, AboutActivity::class.java)
             startActivity(intent)
         }
+
+        binding.mapBtn.setOnClickListener {
+            val intent = Intent(this, MapActivity::class.java)
+            startActivity(intent)
+        }
     }
     override fun onItemLongCLick(position: Int) {
         val myDialog = AlertDialog.Builder(this)
@@ -156,6 +187,8 @@ class MainActivity : AppCompatActivity(), RecyclerViewInterface {
         val intent = Intent(this, InputActivity::class.java)
         intent.putExtra("InputName", app.data[position].name)
         intent.putExtra("InputLocation", app.data[position].location)
+        intent.putExtra("InputLatitude", app.data[position].latitude)
+        intent.putExtra("InputLongitude", app.data[position].longitude)
         intent.putExtra("InputInfo", app.data[position].info)
         intent.putExtra("InputYear", app.data[position].year)
         intent.putExtra("position", position)
