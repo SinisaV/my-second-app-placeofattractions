@@ -13,6 +13,7 @@
     <string name="textViewYear">Year:</string>
     <string name="editTextYearHint">1998</string>
     <string name="addBtn">Add</string>
+    <string name="saveBtn">Save</string>
     <string name="toastInputError">Check Inputs Again!!!</string>
     <string name="toastInputYearError">Year is too large!!!</string>
 

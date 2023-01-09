@@ -37,6 +37,9 @@ class InputActivity : AppCompatActivity() {
             val position = intent.getIntExtra("position",0)
             //Toast.makeText(applicationContext, position.toString(), Toast.LENGTH_SHORT).show()
 
+            val saveBtnText =getString(R.string.saveBtn)
+            binding.addBtn.text = saveBtnText
+
             data.putExtra("ok", "ok")
             data.putExtra("pos", position)
 

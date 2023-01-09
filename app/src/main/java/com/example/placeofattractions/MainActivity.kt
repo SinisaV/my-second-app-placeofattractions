@@ -1,13 +1,21 @@
 package com.example.placeofattractions
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
+import android.graphics.BitmapFactory
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.app.NotificationCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.lib.Attraction
 import com.example.lib.Event
@@ -30,29 +38,41 @@ class MainActivity : AppCompatActivity(), RecyclerViewInterface {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        createNotificationChannel()
+
         val pos = intent.getIntExtra("pos", 0)
         if (intent.getStringExtra("ok") == "ok") {
             binding.recyclerView.adapter?.notifyItemChanged(pos)
         }
 
         val listOfEvents = mutableListOf<Event>()
-        val countAddEvent = Random.nextInt(1, 3)
 
         val faker = faker { }
 
-        for (i in 1..countAddEvent) {
-            listOfEvents.add(Event(faker.name.toString(), "19.12.2022"))
-        }
+        /*for (i in 1..countAddEvent) {
+            listOfEvents.add(Event(faker.name.toString(), "19.12.2022", Random.nextBoolean()))
+        }*/
 
         if (app.data.size < 5) {
             for (i in 1..5) {
+                val countAddEvent = Random.nextInt(0, 2)
+                for (j in 1..countAddEvent) {
+                    listOfEvents.add(Event(faker.name.toString(), "19.12.2022"))
+                }
+
                 val name = faker.name.name()
                 val location = faker.address.city()
                 val info = faker.random.randomString()
                 val year = faker.random.nextInt(1900, 2022)
                 app.data.add(Attraction(name, location, info, year, listOfEvents))
+
+                if (listOfEvents.isNotEmpty()) {
+                    createNotify(name, info)
+                }
+                listOfEvents.clear()
             }
         }
+        app.saveToFile()
 
         binding.recyclerView.adapter = MyAdapter(app.data, this)
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
@@ -67,7 +87,7 @@ class MainActivity : AppCompatActivity(), RecyclerViewInterface {
                 val year: Int = data.getIntExtra("year", 2022)
 
                 val myListOfEvents = mutableListOf<Event>()
-                val myCountAddEvent = Random.nextInt(1, 3)
+                val myCountAddEvent = Random.nextInt(0, 3)
 
                 for (i in 1..myCountAddEvent) {
                     myListOfEvents.add(Event(faker.name.toString(), "19.12.2022"))
@@ -87,6 +107,10 @@ class MainActivity : AppCompatActivity(), RecyclerViewInterface {
                 }
                 else {
                     app.data.add(Attraction(name, location, info, year, myListOfEvents))
+                }
+
+                if (myListOfEvents.isNotEmpty()) {
+                    createNotify(name, info)
                 }
 
                 binding.recyclerView.adapter = MyAdapter(app.data, this)
@@ -138,4 +162,56 @@ class MainActivity : AppCompatActivity(), RecyclerViewInterface {
         intent.putExtra("index", 1)
         getContent.launch(intent)
     }
+
+    companion object {
+        const val CHANNEL_ID = "com.example.placeofattractions" //my channel id
+        const val TIME_ID = "TIME_ID"
+        private var notificationId=0
+        fun getNotificationUniqueID():Int {
+            return notificationId++
+        }
+    }
+
+    private fun createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val name = "MyTestChannel"
+            val descriptionText = "Testing notifications"
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+
+            val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
+                description = descriptionText
+            }
+            // Register the channel with the system
+            val notificationManager: NotificationManager =
+                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
+    }
+
+    @SuppressLint("UnspecifiedImmutableFlag")
+    private fun createNotify(title: String, content: String) {
+
+        val intent = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+
+        val bitmapIcon = BitmapFactory.decodeResource(applicationContext.resources, R.drawable.mainimage)
+
+        val myPendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
+
+        val builder = NotificationCompat.Builder(this, CHANNEL_ID)
+            .setSmallIcon(R.drawable.logo)
+            .setContentTitle(title)
+            .setContentText(content)
+            .setLargeIcon(bitmapIcon)
+            .setGroup("Events")
+            .setContentIntent(myPendingIntent)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+
+        val notificationManager: NotificationManager =
+            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.notify(getNotificationUniqueID(),builder.build())
+    }
+
 }
